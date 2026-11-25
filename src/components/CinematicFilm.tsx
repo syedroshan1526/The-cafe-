@@ -209,8 +209,8 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
         className="w-full h-full object-cover block will-change-transform"
       />
 
-      {/* Subtle cinematic letterbox vignette — clear and transparent to preserve 1080p contrast */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-coffee-950/40 pointer-events-none" />
+      {/* Subtle cinematic letterbox vignette & 35mm lens vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(12,10,9,0.55)_100%)] pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-coffee-950/70 via-coffee-950/20 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-coffee-950/80 via-coffee-950/25 to-transparent pointer-events-none" />
 
@@ -236,30 +236,30 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
       {/* FLOATING CINEMATIC NARRATIVE OVERLAYS (Art-Directed Editorial Film Subtitles) */}
       {/* ========================================================================= */}
 
-      {/* Act 1: The Glass Threshold (Delicate central contrast wash) */}
+      {/* Act 1: The Glass Threshold — Frameless Cinematic Masterpiece */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-all duration-700 pointer-events-none ${
           activeChapter === 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
         }`}
       >
-        <div className="max-w-2xl px-8 py-8 rounded-3xl bg-coffee-950/35 backdrop-blur-[3px] border border-coffee-200/10 shadow-2xl">
-          <span className="text-[10px] font-mono uppercase tracking-[0.45em] text-coffee-300/95 mb-3 block drop-shadow-md">
-            Chapter I — The Entrance
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.45em] text-coffee-300 mb-4 block drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+            Chapter I &bull; The Entrance
           </span>
-          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-coffee-50 font-normal tracking-tight leading-[1.02] drop-shadow-2xl">
+          <h1 className="font-serif text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] text-coffee-50 font-normal tracking-tight leading-none drop-shadow-[0_8px_36px_rgba(0,0,0,0.98)]">
             THE CAFÉ
           </h1>
-          <p className="font-serif italic text-base sm:text-xl md:text-2xl text-coffee-200/95 mt-4 max-w-xl mx-auto font-light leading-relaxed drop-shadow-md">
+          <p className="font-serif italic text-lg sm:text-2xl md:text-3xl text-coffee-100/90 mt-5 sm:mt-6 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)]">
             A sanctuary for quiet craft, single origins, and unhurried mornings.
           </p>
+        </div>
 
-          {/* Restrained scroll cue */}
-          <div className="mt-12 flex flex-col items-center animate-bounce">
-            <span className="text-[9px] font-mono uppercase tracking-[0.35em] text-coffee-300/95 mb-2 drop-shadow">
-              Scroll to step inside
-            </span>
-            <ChevronDown className="w-3.5 h-3.5 text-coffee-300/95" />
-          </div>
+        {/* Cinematic Scroll Cue — Anchored at viewport bottom */}
+        <div className="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <span className="text-[9px] font-mono uppercase tracking-[0.35em] text-coffee-300/90 mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+            Scroll to step inside
+          </span>
+          <ChevronDown className="w-4 h-4 text-coffee-300/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]" />
         </div>
       </div>
 
@@ -327,17 +327,17 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
           activeChapter === 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        <div className="max-w-xl bg-coffee-950/45 p-6 sm:p-8 rounded-3xl backdrop-blur-md border border-coffee-300/15">
-          <span className="text-[10px] font-mono uppercase tracking-[0.35em] text-coffee-300/90 block mb-2">
-            Chapter V — The Extraction
+        <div className="max-w-2xl">
+          <span className="text-[10px] font-mono uppercase tracking-[0.35em] text-coffee-300 block mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+            Chapter V &bull; The Extraction
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-coffee-50 font-normal leading-tight drop-shadow-xl">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-coffee-50 font-normal leading-tight drop-shadow-[0_6px_24px_rgba(0,0,0,0.98)]">
             9 Bar Liquid Gold
           </h2>
-          <p className="font-serif italic text-base sm:text-xl text-coffee-200/90 mt-3 font-light leading-relaxed drop-shadow">
+          <p className="font-serif italic text-base sm:text-xl md:text-2xl text-coffee-200/95 mt-3 font-light leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
             Twin syrupy streams pooling into warm porcelain, building an elastic, micro-bubbled amber crema.
           </p>
-          <div className="flex items-center space-x-4 mt-6 pt-4 border-t border-coffee-300/20 font-mono text-xs text-coffee-300">
+          <div className="flex items-center space-x-4 mt-6 pt-4 border-t border-coffee-300/25 font-mono text-xs text-coffee-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             <span>93.5°C PID Temp</span>
             <span className="text-coffee-600">•</span>
             <span>18g In / 36g Out</span>
@@ -385,23 +385,23 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
         </div>
       </div>
 
-      {/* Act 8: The Savor & Hospitality (Crystal-clear centered luxury frosted glass card) */}
+      {/* Act 8: The Savor & Hospitality — Frameless Cinematic Climax */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-all duration-700 pointer-events-none ${
           activeChapter === 8 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
-        <div className="max-w-2xl bg-coffee-950/70 p-8 sm:p-12 rounded-3xl backdrop-blur-md border border-coffee-300/25 shadow-2xl">
-          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-coffee-300/95 mb-3 block drop-shadow-md">
-            Chapter VIII — The Experience
+        <div className="max-w-3xl mx-auto flex flex-col items-center">
+          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.45em] text-coffee-300 mb-4 block drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+            Chapter VIII &bull; The Experience
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-coffee-50 font-normal tracking-tight leading-tight drop-shadow-2xl">
+          <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-coffee-50 font-normal tracking-tight leading-tight drop-shadow-[0_8px_36px_rgba(0,0,0,0.98)]">
             Your Table Awaits
           </h2>
-          <p className="font-serif italic text-base sm:text-xl text-coffee-200/95 mt-4 font-light leading-relaxed drop-shadow-md">
+          <p className="font-serif italic text-lg sm:text-2xl md:text-3xl text-coffee-100/95 mt-5 max-w-2xl font-light leading-relaxed drop-shadow-[0_4px_20px_rgba(0,0,0,0.98)]">
             A hot porcelain cup, a fresh flaky butter croissant, and the peace of a morning well spent.
           </p>
-          <div className="mt-8 flex items-center justify-center space-x-2 text-coffee-300 font-mono text-xs uppercase tracking-widest">
+          <div className="mt-10 flex items-center justify-center space-x-2 text-coffee-300 font-mono text-xs uppercase tracking-widest drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
             <span>Scroll for Offerings &amp; Reservations</span>
             <ChevronDown className="w-3.5 h-3.5 animate-bounce" />
           </div>
