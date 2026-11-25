@@ -58,7 +58,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   },
   {
     id: "milk-creations",
-    title: "Milk & White Creations",
+    title: "Milk & Microfoam",
     subtitle: "Silky microfoam hand-poured into balanced espresso foundations",
     items: [
       {
@@ -99,7 +99,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   },
   {
     id: "filter-slow",
-    title: "Pour-Over & Slow Bar",
+    title: "Pour-Over & Drip",
     subtitle: "Gentle manual drip revealing nuanced terroir and fruit aromatics",
     items: [
       {
@@ -132,7 +132,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   },
   {
     id: "bakery-pairings",
-    title: "Bakery & Viennoiserie",
+    title: "Bakery & Pastry",
     subtitle: "Baked fresh every morning in-house with European cultured butter",
     items: [
       {

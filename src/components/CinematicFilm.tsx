@@ -410,13 +410,7 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
 
       {/* Elegant, Restrained Film HUD Chapter Indicator */}
       <div className="absolute top-20 sm:top-24 left-6 sm:left-8 z-20 flex items-center space-x-2.5 pointer-events-none">
-        <span
-          className={`text-[10px] font-mono tracking-[0.25em] uppercase px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg transition-colors duration-500 border ${
-            activeChapter === 8
-              ? 'bg-coffee-50/85 text-coffee-950 border-coffee-950/20'
-              : 'bg-coffee-950/60 text-coffee-200/90 border-coffee-800/50'
-          }`}
-        >
+        <span className="text-[10px] font-mono tracking-[0.25em] uppercase px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg transition-colors duration-500 border bg-coffee-950/60 text-coffee-200/90 border-coffee-800/50">
           Scene 0{activeChapter} &bull; {CHAPTER_TITLES[activeChapter]}
         </span>
       </div>
@@ -425,17 +419,13 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
       <div className="absolute top-20 sm:top-24 right-6 sm:right-8 z-20">
         <button
           onClick={toggleSound}
-          className={`px-3 py-1.5 rounded-full flex items-center space-x-2 text-xs font-mono transition-colors shadow-lg border backdrop-blur-md ${
-            activeChapter === 8
-              ? 'bg-coffee-50/85 text-coffee-950 border-coffee-950/20 hover:bg-coffee-100'
-              : 'bg-coffee-950/60 text-coffee-300 border-coffee-800/50 hover:text-coffee-50 hover:border-coffee-300'
-          }`}
+          className="px-3 py-1.5 rounded-full flex items-center space-x-2 text-xs font-mono transition-colors shadow-lg border backdrop-blur-md bg-coffee-950/60 text-coffee-300 border-coffee-800/50 hover:text-coffee-50 hover:border-coffee-300"
           title="Toggle Ambient Audio"
         >
           {soundEnabled ? (
-            <Volume2 className={`w-3.5 h-3.5 ${activeChapter === 8 ? 'text-coffee-950' : 'text-coffee-200'}`} />
+            <Volume2 className="w-3.5 h-3.5 text-coffee-200" />
           ) : (
-            <VolumeX className={`w-3.5 h-3.5 ${activeChapter === 8 ? 'text-coffee-800' : 'text-coffee-400'}`} />
+            <VolumeX className="w-3.5 h-3.5 text-coffee-400" />
           )}
           <span className="text-[9px] uppercase tracking-wider font-medium">
             {soundEnabled ? 'Ambiance On' : 'Silent Film'}
