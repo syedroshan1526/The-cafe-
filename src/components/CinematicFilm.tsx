@@ -76,6 +76,8 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
       offsetY = 0;
     }
 
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
     ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     currentFrameRef.current = index;
@@ -92,8 +94,8 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
     if (!canvas) return;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(rect.height * dpr);
     renderFrameRef.current(currentFrameRef.current);
   }, []);
 
@@ -207,10 +209,10 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
         className="w-full h-full object-cover block will-change-transform"
       />
 
-      {/* Subtle cinematic letterbox vignette */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-coffee-950/20 to-coffee-950/75 pointer-events-none" />
-      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-coffee-950/85 via-coffee-950/30 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-coffee-950/95 via-coffee-950/40 to-transparent pointer-events-none" />
+      {/* Subtle cinematic letterbox vignette — clear and transparent to preserve 1080p contrast */}
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-coffee-950/40 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-coffee-950/70 via-coffee-950/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-coffee-950/80 via-coffee-950/25 to-transparent pointer-events-none" />
 
       {/* Loading Progress Bar (Before Initial Cache) */}
       {!isLoaded && (
@@ -234,28 +236,30 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
       {/* FLOATING CINEMATIC NARRATIVE OVERLAYS (Art-Directed Editorial Film Subtitles) */}
       {/* ========================================================================= */}
 
-      {/* Act 1: The Glass Threshold */}
+      {/* Act 1: The Glass Threshold (Delicate central contrast wash) */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-all duration-700 pointer-events-none ${
           activeChapter === 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
         }`}
       >
-        <span className="text-[10px] font-mono uppercase tracking-[0.45em] text-coffee-300/90 mb-3 drop-shadow">
-          Chapter I — The Entrance
-        </span>
-        <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-coffee-50 font-normal tracking-tight leading-[1.02] drop-shadow-2xl">
-          THE CAFÉ
-        </h1>
-        <p className="font-serif italic text-base sm:text-xl md:text-2xl text-coffee-200/90 mt-4 max-w-xl font-light leading-relaxed drop-shadow">
-          A sanctuary for quiet craft, single origins, and unhurried mornings.
-        </p>
-
-        {/* Restrained scroll cue */}
-        <div className="mt-14 flex flex-col items-center animate-bounce">
-          <span className="text-[9px] font-mono uppercase tracking-[0.35em] text-coffee-300/80 mb-2">
-            Scroll to step inside
+        <div className="max-w-2xl px-8 py-8 rounded-3xl bg-coffee-950/35 backdrop-blur-[3px] border border-coffee-200/10 shadow-2xl">
+          <span className="text-[10px] font-mono uppercase tracking-[0.45em] text-coffee-300/95 mb-3 block drop-shadow-md">
+            Chapter I — The Entrance
           </span>
-          <ChevronDown className="w-3.5 h-3.5 text-coffee-300/80" />
+          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-coffee-50 font-normal tracking-tight leading-[1.02] drop-shadow-2xl">
+            THE CAFÉ
+          </h1>
+          <p className="font-serif italic text-base sm:text-xl md:text-2xl text-coffee-200/95 mt-4 max-w-xl mx-auto font-light leading-relaxed drop-shadow-md">
+            A sanctuary for quiet craft, single origins, and unhurried mornings.
+          </p>
+
+          {/* Restrained scroll cue */}
+          <div className="mt-12 flex flex-col items-center animate-bounce">
+            <span className="text-[9px] font-mono uppercase tracking-[0.35em] text-coffee-300/95 mb-2 drop-shadow">
+              Scroll to step inside
+            </span>
+            <ChevronDown className="w-3.5 h-3.5 text-coffee-300/95" />
+          </div>
         </div>
       </div>
 
@@ -381,20 +385,20 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
         </div>
       </div>
 
-      {/* Act 8: The Savor & Hospitality */}
+      {/* Act 8: The Savor & Hospitality (Crystal-clear centered luxury frosted glass card) */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-all duration-700 pointer-events-none ${
           activeChapter === 8 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
-        <div className="max-w-3xl">
-          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-coffee-300/90 mb-3 block drop-shadow">
+        <div className="max-w-2xl bg-coffee-950/70 p-8 sm:p-12 rounded-3xl backdrop-blur-md border border-coffee-300/25 shadow-2xl">
+          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-coffee-300/95 mb-3 block drop-shadow-md">
             Chapter VIII — The Experience
           </span>
-          <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl text-coffee-50 font-normal tracking-tight leading-tight drop-shadow-2xl">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-coffee-50 font-normal tracking-tight leading-tight drop-shadow-2xl">
             Your Table Awaits
           </h2>
-          <p className="font-serif italic text-base sm:text-2xl text-coffee-200/90 mt-4 font-light leading-relaxed drop-shadow">
+          <p className="font-serif italic text-base sm:text-xl text-coffee-200/95 mt-4 font-light leading-relaxed drop-shadow-md">
             A hot porcelain cup, a fresh flaky butter croissant, and the peace of a morning well spent.
           </p>
           <div className="mt-8 flex items-center justify-center space-x-2 text-coffee-300 font-mono text-xs uppercase tracking-widest">
@@ -404,9 +408,15 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
         </div>
       </div>
 
-      {/* Elegant, Restrained Film HUD Chapter Indicator (No harsh blinking dots) */}
+      {/* Elegant, Restrained Film HUD Chapter Indicator */}
       <div className="absolute top-20 sm:top-24 left-6 sm:left-8 z-20 flex items-center space-x-2.5 pointer-events-none">
-        <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-coffee-200/80 bg-coffee-950/60 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-coffee-800/50 shadow-lg">
+        <span
+          className={`text-[10px] font-mono tracking-[0.25em] uppercase px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg transition-colors duration-500 border ${
+            activeChapter === 8
+              ? 'bg-coffee-50/85 text-coffee-950 border-coffee-950/20'
+              : 'bg-coffee-950/60 text-coffee-200/90 border-coffee-800/50'
+          }`}
+        >
           Scene 0{activeChapter} &bull; {CHAPTER_TITLES[activeChapter]}
         </span>
       </div>
@@ -415,15 +425,19 @@ export const CinematicFilm: React.FC<CinematicFilmProps> = ({ onChapterChange })
       <div className="absolute top-20 sm:top-24 right-6 sm:right-8 z-20">
         <button
           onClick={toggleSound}
-          className="glass-pill px-3 py-1.5 rounded-full flex items-center space-x-2 text-xs font-mono text-coffee-300 hover:text-coffee-50 hover:border-coffee-300 transition-colors shadow-lg"
+          className={`px-3 py-1.5 rounded-full flex items-center space-x-2 text-xs font-mono transition-colors shadow-lg border backdrop-blur-md ${
+            activeChapter === 8
+              ? 'bg-coffee-50/85 text-coffee-950 border-coffee-950/20 hover:bg-coffee-100'
+              : 'bg-coffee-950/60 text-coffee-300 border-coffee-800/50 hover:text-coffee-50 hover:border-coffee-300'
+          }`}
           title="Toggle Ambient Audio"
         >
           {soundEnabled ? (
-            <Volume2 className="w-3.5 h-3.5 text-coffee-200" />
+            <Volume2 className={`w-3.5 h-3.5 ${activeChapter === 8 ? 'text-coffee-950' : 'text-coffee-200'}`} />
           ) : (
-            <VolumeX className="w-3.5 h-3.5 text-coffee-400" />
+            <VolumeX className={`w-3.5 h-3.5 ${activeChapter === 8 ? 'text-coffee-800' : 'text-coffee-400'}`} />
           )}
-          <span className="text-[9px] uppercase tracking-wider">
+          <span className="text-[9px] uppercase tracking-wider font-medium">
             {soundEnabled ? 'Ambiance On' : 'Silent Film'}
           </span>
         </button>

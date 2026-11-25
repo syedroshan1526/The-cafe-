@@ -178,7 +178,7 @@ export const VisitAndReservation: React.FC<VisitProps> = ({
   );
 
   return (
-    <section id="visit" className="relative py-28 lg:py-40 bg-coffee-950 text-coffee-50 border-t border-coffee-900/60 scroll-mt-12">
+    <section id="visit" className="relative py-28 lg:py-36 bg-coffee-950 text-coffee-50 border-t border-coffee-900/60 scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
           {/* Left Column: Hours, Location & Direct Connect */}

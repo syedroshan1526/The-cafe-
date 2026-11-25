@@ -102,8 +102,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Right CTA Button */}
-        <div className="hidden sm:flex items-center space-x-3">
+        {/* Right CTA Button (Desktop >= md) */}
+        <div className="hidden md:flex items-center space-x-3">
           <button
             onClick={onOpenReservation}
             className={`flex items-center space-x-1.5 px-4 py-2 rounded-full text-[10px] font-mono uppercase tracking-[0.18em] transition-all duration-300 shadow-sm active:scale-95 font-medium ${themeConfig.buttonBg} ${themeConfig.buttonText} ${themeConfig.buttonHoverBg}`}

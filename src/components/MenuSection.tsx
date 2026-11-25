@@ -8,7 +8,7 @@ export const MenuSection: React.FC = () => {
     MENU_CATEGORIES.find((cat) => cat.id === selectedCategory) || MENU_CATEGORIES[0];
 
   return (
-    <section id="menu" className="relative py-28 lg:py-40 bg-coffee-950 text-coffee-50 border-t border-coffee-900/60 scroll-mt-12">
+    <section id="menu" className="relative py-28 lg:py-36 bg-coffee-950 text-coffee-50 border-t border-coffee-900/60 scroll-mt-28">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Editorial Header */}
         <div className="text-center mb-16 lg:mb-20">
@@ -25,14 +25,14 @@ export const MenuSection: React.FC = () => {
         </div>
 
         {/* Minimalist Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-14">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-4 mb-14">
           {MENU_CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-mono uppercase tracking-[0.18em] transition-all duration-300 ${
+                className={`px-3.5 sm:px-4 lg:px-5 py-2 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-[0.14em] sm:tracking-[0.18em] transition-all duration-300 ${
                   isSelected
                     ? 'bg-coffee-200 text-coffee-950 font-medium shadow-md'
                     : 'text-coffee-300/80 hover:text-coffee-100 hover:bg-coffee-900/60'
@@ -64,7 +64,7 @@ export const MenuSection: React.FC = () => {
                     {item.name}
                   </h3>
                   {item.badge && (
-                    <span className="text-[9px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-coffee-900 text-coffee-300 border border-coffee-700/40">
+                    <span className="text-[9px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-coffee-900 text-coffee-300 border border-coffee-700/40 whitespace-nowrap shrink-0">
                       {item.badge}
                     </span>
                   )}
